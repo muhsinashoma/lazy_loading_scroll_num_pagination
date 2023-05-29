@@ -1,0 +1,248 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart'; //package imported
+import 'package:http/http.dart' as http;
+import 'package:lazy_loading_scroll_num_pagination/navigation_drawer.dart';
+import 'package:lazy_loading_scroll_num_pagination/number_pagination.dart';
+
+class ListScreen extends StatefulWidget {
+  const ListScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ListScreen> createState() => _ListScreenState();
+}
+
+class _ListScreenState extends State<ListScreen> {
+  int offset = 0;
+  bool isLoading = false;
+
+  dynamic count_tile_view = 0;
+  dynamic data = {};
+  List list_name = [];
+  List _foundUsers = [];
+
+//LoadMore
+  Future _loadMore() async {
+    offset = offset + 10;
+
+    print('Test Purpose $offset');
+
+    var url = Uri.parse(
+        "http://localhost/API/get_pagination_data.php?offset=$offset");
+    // print(url);
+    var response = await http.get(url);
+    //print(response.body);               //To show all json data;
+
+    setState(() {
+      var data = jsonDecode(response.body);
+      list_name.addAll(data['single_page_data']); // print(list_name);
+      _foundUsers = list_name;
+    });
+  } //end LoadMore
+
+  TotalTileCount() async {
+    var url = Uri.parse("http://localhost/API/get_total_list_view_data.php");
+    var response = await http.get(url);
+    // print(response);
+    setState(() {
+      var data = jsonDecode(response.body.toString());
+      count_tile_view = data['total_count'];
+    });
+  }
+
+  getTitleViewData() async {
+    var url = Uri.parse(
+        "http://localhost/API/get_pagination_data.php?offset=$offset"); // print(url);
+    var response = await http.get(url);
+    // print(response.body);     //To show all json data;
+
+    setState(() {
+      var data = jsonDecode(response.body);
+      list_name = data['single_page_data']; // print(list_name);
+      _foundUsers = list_name;
+    });
+  } //end getTitleViewData()
+
+  @override
+  void initState() {
+    getTitleViewData();
+    TotalTileCount();
+    _foundUsers = list_name;
+
+    // getPagingData(String pageNumber, String itemPerPage);
+    _loadMore();
+    // TODO: implement initState
+    super.initState();
+  }
+
+// This function is called whenever the text field changes
+  void runFilter(String enteredKeyword) {
+    List results = [];
+
+    //print(enteredKeyword.isEmpty);
+
+    if (enteredKeyword.isEmpty) {
+      // if the search field is empty or only contains white-space, we'll display all users
+
+      setState(() {
+        _foundUsers = list_name;
+      });
+    } else {
+      results = list_name
+          .where((user) => user["title"]
+              .toLowerCase()
+              .contains(enteredKeyword.toLowerCase()))
+          .toList();
+
+      // To show searching result
+      // print(results);
+
+      setState(() {
+        _foundUsers = results;
+      });
+
+      // we use the toLowerCase() method to make it case-insensitive
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('List Screen using Lazy Loadding Scroll Pagination '),
+        centerTitle: true,
+        backgroundColor: Colors.lightBlue,
+        actions: [
+          Row(
+            children: [
+              Text('$count_tile_view '),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => NumbersPage()));
+                },
+                icon: Icon(Icons.favorite_border),
+                // color: Colors.grey,
+              ),
+              //   Text("$count_favortite"),
+            ],
+          ),
+        ],
+      ),
+      drawer: NavigationDrawer(),
+      body: isLoading
+          ? Center(
+              child: CircularProgressIndicator(
+                color: Colors.orangeAccent,
+                backgroundColor: Colors.blueAccent,
+                value: 0.50,
+              ),
+            )
+          : LazyLoadScrollView(
+              onEndOfPage: () => _loadMore(),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    onChanged: (value) {
+                      //print(value);
+                      runFilter(value);
+                    },
+                    decoration: const InputDecoration(
+                        labelText: 'Search', suffixIcon: Icon(Icons.search)),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: _foundUsers.isNotEmpty
+                        ? ListView.builder(
+                            itemExtent: 100,
+                            //itemCount: _foundUsers.length,
+                            itemCount: _foundUsers.length,
+                            itemBuilder: (context, index) => Card(
+                              key: ValueKey(_foundUsers[index]["id"]),
+                              color: Colors.blue,
+                              elevation: 4,
+                              margin: const EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 10),
+                              child: ListTile(
+                                leading: Text(
+                                  _foundUsers[index]["id"].toString(),
+                                  style: const TextStyle(
+                                      fontSize: 24, color: Colors.white),
+                                ),
+                                title: Text(_foundUsers[index]['title'],
+                                    style: TextStyle(color: Colors.white)),
+                                subtitle: Text(
+                                    '${_foundUsers[index]["subtitle"].toString()} years old',
+                                    style: TextStyle(color: Colors.white)),
+                              ),
+                            ),
+                          )
+                        : const Text(
+                            'No results found',
+                            style: TextStyle(fontSize: 24),
+                          ),
+                  ),
+
+                  // if (isLoading == true)
+                  //   Container(
+                  //     child: Column(
+                  //       mainAxisAlignment: MainAxisAlignment.center,
+                  //       children: [
+                  //         Text(
+                  //           "Total List : ",
+                  //           style: TextStyle(fontSize: 30),
+                  //         ),
+                  //         SizedBox(
+                  //           height: 40,
+                  //         ),
+                  //         Stack(
+                  //           alignment: Alignment.center,
+                  //           children: [
+                  //             SizedBox(
+                  //               width: 20,
+                  //               height: 20,
+                  //               child: CircularProgressIndicator(
+                  //                 strokeWidth: 20,
+                  //               ),
+                  //             ),
+                  //             Text(
+                  //               "3/3",
+                  //               style: TextStyle(fontSize: 20),
+                  //             ),
+                  //           ],
+                  //         ),
+                  //       ], //Children
+                  //     ),
+                  //   ),
+
+                  // if (isLoading == true)
+                  //   Padding(
+                  //     padding: EdgeInsets.all(10.0),
+                  //     child: Center(
+                  //       child: CircularProgressIndicator(),
+                  //     ),
+                  //   ),
+                  // if (_hasNextPage == false)
+                  //   Container(
+                  //     padding: EdgeInsets.only(top: 30, bottom: 40),
+                  //     color: Colors.amber,
+                  //     child: Center(
+                  //       child: Text('You have fetched all of the content'),
+                  //     ),
+                  //   ),
+                ],
+              ),
+            ),
+    );
+  }
+
+//  loadMore() {}
+}

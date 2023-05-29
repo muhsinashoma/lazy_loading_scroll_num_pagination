@@ -1,0 +1,95 @@
+ data or exiting system for myself
+
+Inside my existing system we are used any other existing system data/feature  is called API
+
+facebook api, instogram api, gmail api, 
+
+gmail api or google drive or weather api or currency api
+
+bangladeshi existing platform- bulk-sms
+
+two-step verification
+
+how to take api from google - geo location
+
+
+Required Knowleade of API : 
+ 
+Extension of Javascript is JSON 
+
+JSON is Javascript Object Notaion
+
+JSON Array Structure
+
+Most of the API shows JSON Array
+
+Needs how to json array decode and encode
+how to create json object and json array
+
+
+PHP, javascript, nodejs and python
+
+------------------------------------------------------------------------------------
+
+Hunny Coders
+3.07K subscribers
+
+What is API and Why
+1. httpswww.youtube.comwatchv=kc7nYe4Yjlo
+
+1st lecture
+---------------------------------------------------------------------------------
+2nd lecture
+
+https://www.youtube.com/watch?v=d2qlzsbFsPA
+
+2. https://www.youtube.com/watch?v=d2qlzsbFsPA
+
+API Calling by using Javascript 
+
+----------------------------------------------------------------------------------
+What is API and Why API | REST API | RESTful API Full Bangla Crash Course Part 1
+
+JSON is light weight format
+
+JSON is a javascript object notation and JSON has come from Javascript
+
+---------------------------------------------------------------------------------------
+2nd lecture
+
+https://www.youtube.com/watch?v=d2qlzsbFsPA
+
+How to use an API | REST API in Web | Banagla Crush Course | Use RESTful API in Web [Part -2]
+
+--------------------------------------------------------------------------------------------
+Application Programming Interface
+
+API is such process or systen by which We can use data/features in our platform from any other platform/features
+
+e.g login with facebook or login with gmail or login with tuiter
+
+That's means others features or platform are using our platform  that's why we need a process or access  this process system is called API
+
+Weather Application : darksky, bing. weather information of the world we are needed and updated day to day or realtime so we need help from darksky and bing
+
+We want to use existing system inside our platform in this case 
+
+we will use data of darksky or being or yahoo weather or real time data inside our platform or software and we are making same weather software
+
+
+
+For Realtime Data System we have to use darksky API or yahoo weather API or being API
+
+Using of google map actually we are using google map-api
+
+Map api - latidure, longitue or current location
+
+
+https://www.youtube.com/watch?v=I---fWhDpOo
+API কি? API দিয়ে সফটওয়্যার বানানোর বিস্তারিত ! Software Development Using API Bangla Tutorial
+---------------------------------------------------------------------------
+ধৈর্য্য আসলে কি? নোমান আলী খানের লেকচার বাংলা ডাবিং। Nouman Ali Khan. Noman Ali Khan. Bangla Dubbing
+
+
+https://www.youtube.com/watch?v=l3U9qIYhSj4
+

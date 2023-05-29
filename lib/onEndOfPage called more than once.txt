@@ -1,0 +1,157 @@
+
+-------------------------------------------------------------------------
+
+2023-05-08
+
+https://stackoverflow.com/questions/75027667/flutter-how-to-stay-in-position-after-lazy-loading
+
+
+Flutter, How to stay in position after lazy loading
+
+-------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=TIZ3Vx-5-TU
+
+Flutter Online Shop | Provider State Management
+---------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=2ho2mfeQ9_E
+
+Get Request Flutter | Http Flutter Tutorial | Http Request JSON | Laravel API Call With PHP
+------------------------------------------------------------------------------------
+
+Flutter Post Request Example | Make Flutter Rest Api With Laravel PHP | Flutter API Call Sign Up
+
+https://www.youtube.com/watch?v=C0gz3Eg9cx4
+
+------------------------------------------------------------------------------
+Flutter setState() and Callback Function(with parameters) for Passing Data Between Classes
+
+https://www.youtube.com/watch?v=zq-JGQxNwtU
+
+--------------------------------------------------------------------
+Lazy Flutter performance | Session
+
+https://www.google.com/search?q=how+to+use+(List%3CWordPair%3E+fetchedList+for+flutter+lazy+loading&oq=how+to+use+(List%3CWordPair%3E+fetchedList++for+flutter+lazy+loading&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCTE4OTIyajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:dbd97e61,vid:qax_nOpgz7E
+
+
+---------------------------------------------------------------------
+Lazy Flutter performance | Session
+https://www.youtube.com/watch?v=qax_nOpgz7E
+
+-------------------------------------------------------------------------
+https://github.com/QuirijnGB/lazy-load-scrollview/issues/1
+
+-------------------------------------------------------------------
+
+Hi,
+I've used this plugin inside of a StreamBuilder without issues however when I try to use it inside a custom StatefulWidget the onEndOfPage callback gets called more than once.
+
+Here the example app,
+
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
+
+main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text('LazyLoading'),
+      ),
+      body: Home(),
+    ),
+  ));
+}
+
+class Home extends StatefulWidget {
+  final int pageSize;
+
+  Home({this.pageSize = 10});
+
+  @override
+  State<StatefulWidget> createState() => HomeState();
+}
+
+class HomeState extends State<Home> {
+  List<Map> documents;
+  bool loading;
+  int currentPage;
+  Client client;
+
+  @override
+  void initState() {
+    super.initState();
+    documents = [];
+    loading = false;
+    currentPage = 0;
+    client = Client();
+    () async {
+      await _loadMore();
+    }();
+  }
+
+// 'http://monster6.disco.unimib.it/API/documents/search/?s=informatica&paging=${widget.pageSize}&offset=${currentPage > 0 ? currentPage * widget.pageSize : ''}'
+  Future<void> _loadMore() async {
+    print('loading more!');
+    setState(() {
+      loading = true;
+    });
+    final response = await client.get(
+      Uri.http(
+        'monster6.disco.unimib.it',
+        '/API/documents/search',
+        {
+          's': 'informatica',
+          'paging': '${widget.pageSize}',
+          'offset':
+              currentPage > 0 ? '${currentPage * widget.pageSize + 1}' : null
+        },
+      ),
+    );
+    print(jsonDecode(response.body));
+    final results = List<Map>.from(
+        jsonDecode(response.body)['documentsAleph']['documents']);
+    if (mounted) {
+      setState(() {
+        loading = false;
+        documents.addAll(results);
+        currentPage++;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Positioned.fill(
+          child: LazyLoadScrollView(
+            child: ListView.builder(
+              itemCount: documents.length,
+              itemBuilder: (context, index) {
+                return AspectRatio(
+                  aspectRatio: 2,
+                  child: Card(
+                    child: Text(documents[index]['title'] ?? 'null'),
+                  ),
+                );
+              },
+            ),
+            onEndOfPage: () {
+              _loadMore();
+            },
+            scrollOffset: 600,
+          ),
+        ),
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: loading ? LinearProgressIndicator() : Container(),
+        ),
+      ],
+    );
+  }
+}

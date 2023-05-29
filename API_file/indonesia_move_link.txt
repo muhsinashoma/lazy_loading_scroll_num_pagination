@@ -1,0 +1,92 @@
+
+https://www.youtube.com/watch?v=VvqHpylBxMQ
+
+I Know When You Are Going To Die|Horror|Thriller|The World Of Keya
+
+--------------------------------------------------------------------------->
+       
+
+
+
+<!------------------- Add Reason for Reopen Status ----------------------->
+
+<script type="text/javascript">
+
+    function updateRecord_ReopenStatus(div) {
+      //  alert('ok');
+        var issue_id = div.id;                                                                           //  alert(issue_id);
+        var user_id = document.getElementById("user_id").value;                                         //   alert('User Id :'+user_id);
+        var new_value = document.getElementById("task_status_qa").value;                                //   alert(new_value);
+        var commentId = "comment_task_qa"+issue_id;                                                     //   alert('Comment ID : '+commentId);
+        var comment = document.getElementById(commentId).value;                                         //   alert(comment);
+
+        if(comment!='')
+        {
+            $.ajax({
+                url:"cc/insert_comment_task_qa_status.php",
+                type:"POST",
+                async : false,
+                data:{
+                    "done" : 1,
+                    "issue_id":issue_id,
+                    "new_value": new_value,
+                    "user_id":user_id,
+                    "reopen_reason":comment
+                },
+
+                dataType:"text",
+                success : function(data){
+
+                    $('#modal_'+issue_id).modal('hide');                    //close the modal
+                    {
+                        window.location.reload(true);
+                    }
+
+                    $('#comment_task_qa'+issue_id).val(' ');               //clear value from textarea
+                    FetchDataOpenStatus(div);
+                }
+
+            })
+
+        }
+        else
+        {
+            alert('Please type a comment..');
+        }
+
+
+
+
+     function FetchDataOpenStatus(div)
+        {
+           var  issue_id = div.id;      alert('Fetching Module ID : '+issue_id);
+           $.ajax({
+                type: "POST",
+                 url: "cc/insert_comment_task_qa_status.php",
+                 data: {
+                    "issue_id" : issue_id,
+                    "new_value": new_value,
+                    "reopen_reason":comment
+               },
+       
+               success: function(data)
+                {
+                    alert('Task ID : '+data);
+                   $("#showcommentsdiv_reopen"+issue_id).html(data);
+                     $("#changestatus"+issue_id).html(data);
+                }
+           });
+        
+        
+        } //end FetchDataOpenStatus
+
+
+
+
+
+    }
+
+    <!------------------- End Comment for Open Status ----------------------->
+
+
+</script>

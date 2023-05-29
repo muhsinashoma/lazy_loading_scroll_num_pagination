@@ -1,0 +1,107 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
+
+main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text('LazyLoading'),
+      ),
+      body: Home(),
+    ),
+  ));
+}
+
+class Home extends StatefulWidget {
+  final int pageSize;
+
+  Home({this.pageSize = 10});
+
+  @override
+  State<StatefulWidget> createState() => HomeState();
+}
+
+class HomeState extends State<Home> {
+  late List<Map> documents;
+  late bool loading;
+  late int currentPage;
+  late Client client;
+
+  @override
+  void initState() {
+    super.initState();
+    documents = [];
+    loading = false;
+    currentPage = 0;
+    client = Client();
+    () async {
+      await _loadMore();
+    }();
+  }
+
+// 'http://monster6.disco.unimib.it/API/documents/search/?s=informatica&paging=${widget.pageSize}&offset=${currentPage > 0 ? currentPage * widget.pageSize : ''}'
+  Future<void> _loadMore() async {
+    print('loading more!');
+    setState(() {
+      loading = true;
+    });
+    final response = await client.get(
+      Uri.http(
+        'monster6.disco.unimib.it',
+        '/API/documents/search',
+        {
+          's': 'informatica',
+          'paging': '${widget.pageSize}',
+          'offset':
+              currentPage > 0 ? '${currentPage * widget.pageSize + 1}' : null
+        },
+      ),
+    );
+    print(jsonDecode(response.body));
+    final results = List<Map>.from(
+        jsonDecode(response.body)['documentsAleph']['documents']);
+    if (mounted) {
+      setState(() {
+        loading = false;
+        documents.addAll(results);
+        currentPage++;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Positioned.fill(
+          child: LazyLoadScrollView(
+            child: ListView.builder(
+              itemCount: documents.length,
+              itemBuilder: (context, index) {
+                return AspectRatio(
+                  aspectRatio: 2,
+                  child: Card(
+                    child: Text(documents[index]['title'] ?? 'null'),
+                  ),
+                );
+              },
+            ),
+            onEndOfPage: () {
+              _loadMore();
+            },
+            scrollOffset: 600,
+          ),
+        ),
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: loading ? LinearProgressIndicator() : Container(),
+        ),
+      ],
+    );
+  }
+}

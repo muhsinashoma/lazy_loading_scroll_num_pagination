@@ -1,0 +1,179 @@
+
+------------------------------------------------------------------------------------------------
+
+2023-05-25
+
+Flutter Pagination Example | ListView.builder | Load More on Scroll ListView
+
+https://www.youtube.com/watch?v=scsexlO1ezo
+-----------------------------------------------------------------------------------------------------------
+
+2023-05-25
+
+https://stackoverflow.com/questions/55622088/how-to-change-the-background-color-of-a-button-dynamically-in-onpressed
+
+Here is a very simple approach.
+
+bool isButtonPressed = false;
+
+RaisedButton(
+            color: isButtonPressed ? Colors.green : Colors.red,
+            onPressed: () {
+              setState(() {
+                isButtonPressed =!isButtonPressed;
+              });
+            },
+          ),
+-------------------------------------------------------------------------------
+
+2023-05-23
+
+https://thegrowingdeveloper.org/coding-blog/pageview-and-pagecontroller-flutter-tutorial-for-beginners
+
+https://thegrowingdeveloper.org/coding-blog/pageview-and-pagecontroller-flutter-tutorial-for-beginners
+
+PageView and PageController | Flutter Tutorial for Beginners
+
+
+
+----------------------------------------------------------------------------------------
+
+2023-05-23
+
+The Growing Developer
+
+
+How to create models in Flutter | Dart? A Beginners Guide
+
+https://thegrowingdeveloper.org/coding-blog/how-to-create-models-in-flutter-dart
+----------------------------------------------------------------------
+Flutter ToDo App Tutorial for Beginners
+
+https://www.youtube.com/watch?v=K4P5DZ9TRns
+
+
+-------------------------------------------------------------------------
+Flutter Number Pagination || Flutter Web Pagination
+
+https://pub.dev/packages/number_paginator
+------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=iKcWMfSFjAE
+
+-------------------------------------------------------------------------
+
+https://stackoverflow.com/questions/72523887/flutter-how-can-i-make-my-appbar-title-which-is-an-image-redirect-to-home-pag
+
+
+-----------------------------------------------------------------------------
+
+Flutter: How can I make my appbar title (which is an image) redirect to home page?
+
+https://stackoverflow.com/questions/51322011/add-ontap-listener-to-appbar-flutter
+
+Add onTap listener to appBar (Flutter)
+------------------------------------------------------------------------------------
+
+Flutter – Lazy Loader
+
+https://www.geeksforgeeks.org/flutter-lazy-loader/amp/
+
+-----------------------------------------------------------------------------------
+
+onEndOfPage called more than once #1
+
+https://github.com/QuirijnGB/lazy-load-scrollview/issues/1
+
+https://github.com/QuirijnGB/lazy-load-scrollview/issues/1
+
+
+https://github.com/QuirijnGB/lazy-load-scrollview/issues/1
+
+onEndOfPage called more than once #1
+-----------------------------------------------------------------------------------
+2023-05-02
+----------------------------------------------------------------------------------
+
+
+https://stackoverflow.com/questions/67157440/flutter-dart-how-to-show-only-the-first-10-items-in-list-view-builder
+
+
+Flutter, Dart: How to show only the first 10 items in list view builder?
+
+-----------------------------------------------------------------------
+
+
+https://pub.dev/packages/lazy_load_scrollview
+
+
+------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=eENDlIgadr4
+
+Flutter: Infinite Scrolling ListView (HTTP GET)
+
+
+--------------------------------------------------------------------
+https://stackoverflow.com/questions/64628511/flutter-count-the-number-of-items-created-through-listview-builder-and-display
+
+Flutter: count the number of items created through ListView.builder and display them
+
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.grey[200],
+        body: Container(
+          child: Column(children: [
+            Text(
+              'My Wishlist',
+            ),
+            SizedBox(height: 20),
+            Text('You have ${products.length} Items'),
+            ...products.map((product) {
+              return Text(product.title);
+            }).toList(),
+          ]),
+        ));
+  }
+}
+
+class Product {
+  int id;
+  String title;
+  String image;
+  String description;
+
+  Product({this.id, this.title, this.image, this.description});
+}
+
+-------------------------------------------------------------------------
+
+
+
+Flutter: Lazy Loading ListViews | Load More Data On Scroll
+
+https://www.youtube.com/watch?v=JaVjHDdoVOg
+
+
+
+----------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=pZdJX3PAydQ
+
+Flutter Tutorial - Drag And Drop File Upload | Drop Files Into Dropzone
+
+----------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=Bc0qB1jtHBk
+
+
+Flutter Tutorial - Drag & Drop Widgets - Draggable & DragTarget
+--------------------------------------------------------------------------
+
+
+https://www.youtube.com/watch?v=8TWIE_GFs9E
+
+
+Flutter Tutorial - Get Widget Size & Position - Get X, Y, Width & Height Of Widget
+
+----------------------------------------------------------------------

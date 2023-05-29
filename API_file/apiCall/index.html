@@ -1,0 +1,36 @@
+<!---- How to use an API | REST API in Web | Banagla Crush Course | Use RESTful API in Web [Part -2]  -->
+<!--- https://jsonplaceholder.typicode.com/  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="users">
+
+    </ul>
+    
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"></script>
+
+       <script>
+           axios.get('https://jsonplaceholder.typicode.com/users')
+             .then(function(res){
+                 //console.log(res.data);
+
+                 res.data.forEach(ele => {
+                     console.log(ele);
+                     document.getElementById('users').innerHTML +='<li>'+ele.name+'</li>'
+                 });
+             })
+             .catch(function(err){
+                 console.log(err);
+             })
+     
+     </script>
+
+</body>
+</html>

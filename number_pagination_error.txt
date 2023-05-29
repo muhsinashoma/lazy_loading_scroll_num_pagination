@@ -1,0 +1,15 @@
+C:\Users\Muhsina Akter\AppData\Local\Pub\Cache\hosted\pub.dartlang.org\number_paginator-0.2.3\lib\src\ui\widgets\buttons
+
+/C:/Users/Muhsina%20Akter/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/number_paginator-0.2.3/lib/src/ui/widgets/buttons/paginator_icon_button.dart:18:12: Error: The
+method 'PaginatorButton' isn't defined for the class 'PaginatorIconButton'.
+
+
+
+/C:/Users/Muhsina%20Akter/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/number_paginator-0.2.3/lib/src/ui/widgets/buttons/paginator_button.dart:34:13: Error: No named
+parameter with the name 'foregroundColor'.
+            foregroundColor: _foregroundColor(context, selected),
+            ^^^^^^^^^^^^^^^
+/E:/Flutter%20dev%20tools/flutter_windows_3.0.0-stable/flutter/packages/flutter/lib/src/material/text_button.dart:145:22: Context: Found this candidate, but the
+arguments don't match.
+  static ButtonStyle styleFrom({
+                  

@@ -1,0 +1,274 @@
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (main)
+$ git init
+Reinitialized existing Git repository in E:/Flutter-Project/search_project/.git/
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (main)
+$ git remote add origin https://github.com/muhsinashoma/search_project.git
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (main)
+$ git rm -r *
+fatal: pathspec 'build' did not match any files
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (main)
+$ git switch master
+git: 'switch' is not a git command. See 'git --help'.
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (main)
+$ git add .
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git commit -m "Project Init"
+[master 6bc1578] Project Init
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$  git push --set-upstream origin master
+fatal: HttpRequestException encountered.
+   An error occurred while sending the request.
+
+
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git push --set-upstream origin master
+fatal: HttpRequestException encountered.
+   An error occurred while sending the request.
+To https://github.com/muhsinashoma/search_project.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/muhsinashoma/search_project.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git pull
+fatal: HttpRequestException encountered.
+   An error occurred while sending the request.
+warning: no common commits
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 13 (delta 3), reused 12 (delta 2), pack-reused 0
+Unpacking objects: 100% (13/13), done.
+From https://github.com/muhsinashoma/search_project
+ * [new branch]      main       -> origin/main
+ * [new branch]      master     -> origin/master
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git push --set-upstream origin master
+fatal: HttpRequestException encountered.
+   An error occurred while sending the request.
+To https://github.com/muhsinashoma/search_project.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/muhsinashoma/search_project.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git init
+Initialized empty Git repository in E:/Flutter-Project/search_project/.git/
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git add .
+warning: LF will be replaced by CRLF in .gitattributes.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in .metadata.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in LICENSE.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in linux/flutter/generated_plugin_registrant.cc.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in linux/flutter/generated_plugin_registrant.h.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in linux/flutter/generated_plugins.cmake.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in macos/Flutter/GeneratedPluginRegistrant.swift.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in pubspec.lock.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in windows/flutter/generated_plugin_registrant.cc.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in windows/flutter/generated_plugin_registrant.h.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in windows/flutter/generated_plugins.cmake.
+The file will have its original line endings in your working directory.
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git commit -m "Flutter Search working"
+[master (root-commit) b3030f3] Flutter Search working
+ 130 files changed, 5127 insertions(+)
+ create mode 100644 .gitattributes
+ create mode 100644 .gitignore
+ create mode 100644 .metadata
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 analysis_options.yaml
+ create mode 100644 android/.gitignore
+ create mode 100644 android/app/build.gradle
+ create mode 100644 android/app/src/debug/AndroidManifest.xml
+ create mode 100644 android/app/src/main/AndroidManifest.xml
+ create mode 100644 android/app/src/main/kotlin/com/example/search_project/MainActivity.kt
+ create mode 100644 android/app/src/main/res/drawable-v21/launch_background.xml
+ create mode 100644 android/app/src/main/res/drawable/launch_background.xml
+ create mode 100644 android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+ create mode 100644 android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+ create mode 100644 android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+ create mode 100644 android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+ create mode 100644 android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+ create mode 100644 android/app/src/main/res/values-night/styles.xml
+ create mode 100644 android/app/src/main/res/values/styles.xml
+ create mode 100644 android/app/src/profile/AndroidManifest.xml
+ create mode 100644 android/build.gradle
+ create mode 100644 android/gradle.properties
+ create mode 100644 android/gradle/wrapper/gradle-wrapper.properties
+ create mode 100644 android/settings.gradle
+ create mode 100644 ios/.gitignore
+ create mode 100644 ios/Flutter/AppFrameworkInfo.plist
+ create mode 100644 ios/Flutter/Debug.xcconfig
+ create mode 100644 ios/Flutter/Release.xcconfig
+ create mode 100644 ios/Runner.xcodeproj/project.pbxproj
+ create mode 100644 ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+ create mode 100644 ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+ create mode 100644 ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings     
+ create mode 100644 ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+ create mode 100644 ios/Runner.xcworkspace/contents.xcworkspacedata
+ create mode 100644 ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+ create mode 100644 ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+ create mode 100644 ios/Runner/AppDelegate.swift
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png
+ create mode 100644 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png
+ create mode 100644 ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json
+ create mode 100644 ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png
+ create mode 100644 ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png
+ create mode 100644 ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png
+ create mode 100644 ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md
+ create mode 100644 ios/Runner/Base.lproj/LaunchScreen.storyboard
+ create mode 100644 ios/Runner/Base.lproj/Main.storyboard
+ create mode 100644 ios/Runner/Info.plist
+ create mode 100644 ios/Runner/Runner-Bridging-Header.h
+ create mode 100644 lib/main-backup.dart
+ create mode 100644 lib/main.dart
+ create mode 100644 lib/main_working_perfectly.txt
+ create mode 100644 linux/.gitignore
+ create mode 100644 linux/CMakeLists.txt
+ create mode 100644 linux/flutter/CMakeLists.txt
+ create mode 100644 linux/flutter/generated_plugin_registrant.cc
+ create mode 100644 linux/flutter/generated_plugin_registrant.h
+ create mode 100644 linux/flutter/generated_plugins.cmake
+ create mode 100644 linux/main.cc
+ create mode 100644 linux/my_application.cc
+ create mode 100644 linux/my_application.h
+ create mode 100644 macos/.gitignore
+ create mode 100644 macos/Flutter/Flutter-Debug.xcconfig
+ create mode 100644 macos/Flutter/Flutter-Release.xcconfig
+ create mode 100644 macos/Flutter/GeneratedPluginRegistrant.swift
+ create mode 100644 macos/Runner.xcodeproj/project.pbxproj
+ create mode 100644 macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist       
+ create mode 100644 macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+ create mode 100644 macos/Runner.xcworkspace/contents.xcworkspacedata
+ create mode 100644 macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+ create mode 100644 macos/Runner/AppDelegate.swift
+ create mode 100644 macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+ create mode 100644 macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png
+ create mode 100644 macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png
+ create mode 100644 macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png
+ create mode 100644 macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png
+ create mode 100644 macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png
+ create mode 100644 macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png
+ create mode 100644 macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png
+ create mode 100644 macos/Runner/Base.lproj/MainMenu.xib
+ create mode 100644 macos/Runner/Configs/AppInfo.xcconfig
+ create mode 100644 macos/Runner/Configs/Debug.xcconfig
+ create mode 100644 macos/Runner/Configs/Release.xcconfig
+ create mode 100644 macos/Runner/Configs/Warnings.xcconfig
+ create mode 100644 macos/Runner/DebugProfile.entitlements
+ create mode 100644 macos/Runner/Info.plist
+ create mode 100644 macos/Runner/MainFlutterWindow.swift
+ create mode 100644 macos/Runner/Release.entitlements
+ create mode 100644 pubspec.lock
+ create mode 100644 pubspec.yaml
+ create mode 100644 test/widget_test.dart
+ create mode 100644 web/favicon.png
+ create mode 100644 web/icons/Icon-192.png
+ create mode 100644 web/icons/Icon-512.png
+ create mode 100644 web/icons/Icon-maskable-192.png
+ create mode 100644 web/icons/Icon-maskable-512.png
+ create mode 100644 web/index.html
+ create mode 100644 web/manifest.json
+ create mode 100644 windows/.gitignore
+ create mode 100644 windows/CMakeLists.txt
+ create mode 100644 windows/flutter/CMakeLists.txt
+ create mode 100644 windows/flutter/generated_plugin_registrant.cc
+ create mode 100644 windows/flutter/generated_plugin_registrant.h
+ create mode 100644 windows/flutter/generated_plugins.cmake
+ create mode 100644 windows/runner/CMakeLists.txt
+ create mode 100644 windows/runner/Runner.rc
+ create mode 100644 windows/runner/flutter_window.cpp
+ create mode 100644 windows/runner/flutter_window.h
+ create mode 100644 windows/runner/main.cpp
+ create mode 100644 windows/runner/resource.h
+ create mode 100644 windows/runner/resources/app_icon.ico
+ create mode 100644 windows/runner/runner.exe.manifest
+ create mode 100644 windows/runner/utils.cpp
+ create mode 100644 windows/runner/utils.h
+ create mode 100644 windows/runner/win32_window.cpp
+ create mode 100644 windows/runner/win32_window.h
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (master)
+$ git branch -M main
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (main)
+$ git remote add origin https://github.com/muhsinashoma/search_project.git
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (main)
+$ git push -u origin main
+fatal: HttpRequestException encountered.
+   An error occurred while sending the request.
+Counting objects: 177, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (149/149), done.
+Writing objects: 100% (177/177), 203.57 KiB | 2.48 MiB/s, done.
+Total 177 (delta 20), reused 0 (delta 0)
+remote: Resolving deltas: 100% (20/20), done.
+To https://github.com/muhsinashoma/search_project.git
+ * [new branch]      main -> main
+Branch main set up to track remote branch main from origin.
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/search_project (main)
+$

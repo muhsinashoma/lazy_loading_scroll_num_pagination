@@ -1,0 +1,18 @@
+
+
+This steps worked for me
+
+Delete the pubspec.lock file then run the command flutter pub get again.
+
+Muhsina Akter@muhsina-sw MINGW64 /e/Flutter-Project/lazy_loading_scroll_num_pagi                                                                                                                nation (master)
+$ flutter pub get
+Running "flutter pub get" in lazy_loading_scroll_num_pagination...         6.3s
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+Pagination in MySql - How to use LIMIT and OFFSET in MySql
+
+https://www.javamadesoeasy.com/2015/12/pagination-in-mysql-how-to-use-limit.html#:~:text=LIMIT%20and%20OFFSET%20helps%20us,be%20fetched%20from%20MySql%20database
+
+----------------------------------------------------------------------------------------------------------------------------------

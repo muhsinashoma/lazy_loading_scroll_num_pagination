@@ -1,0 +1,189 @@
+
+
+
+"Md. Hasib Khan" <hasib.khan@fiberathome.net>; 
+"moshiur rahman" <moshiur.rahman@fiberathome.net>; 
+"anwar bhuiyan" <anwar.bhuiyan@fiberathome.net>; 
+----------------------------------------------------------------------------------------
+2023-05-09
+
+https://www.youtube.com/watch?v=scsexlO1ezo
+
+Flutter Pagination Example | ListView.builder | Load More on Scroll ListView
+
+------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=Uz0FgKxXt2o
+
+Must Know Dart List and Map for Flutter App Dev | forEach() map() toList()
+
+--------------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=6xWVWDvmqeU
+
+List Method .map() in Dart and Flutter
+
+
+https://www.youtube.com/watch?v=0ftBmZ--oMI
+2- Restful API and Pagination with the last version of Bloc Pattern in Flutter
+
+---------------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=MQhjx1HS_pI
+
+Flutter SQFLITE CRUD Operations
+
+-------------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=Uz0FgKxXt2o
+
+Must Know Dart List and Map for Flutter App Dev | forEach() map() toList()
+
+--------------------------------------------------------------------------------------
+2023-05-09
+
+https://www.youtube.com/watch?v=scsexlO1ezo
+
+Flutter Pagination Example | ListView.builder | Load More on Scroll ListView
+
+
+----------------------------------------------------------------------------------
+
+Todo App using Rest API | CRUD App | Flutter English Tutorial
+
+https://www.youtube.com/watch?v=Wsor0fci3Ss
+
+---------------------------------------------------------------------------------
+Flutter Pagination | Load more on scroll | Building Feature in Flutter
+https://www.youtube.com/watch?v=Gsfjcpo6wcA
+
+-----------------------------------------------------------------------------
+
+https://github.com/MaikuB/incrementally_loading_listview/blob/master/example/lib/main.dart
+-----------------------------------------------------------------------
+Flutter Pagination ListView and Load More on Scroll
+https://learnflutter.co/flutter-pagination-listview-and-load-more-on-scroll/
+-----------------------------------------------------------------------
+
+Flutter Pagination ListView and Load More on Scroll
+
+https://learnflutter.co/flutter-pagination-listview-and-load-more-on-scroll/
+
+---------------------------------------------------------------------
+
+https://morioh.com/p/b508dcd4f927
+
+
+A Lazy Loading Wrapper for A ScrollView For Flutter
+
+
+--------------------------------------------------------------------
+
+https://morioh.com/p/b508dcd4f927
+
+A Lazy Loading Wrapper for A ScrollView For Flutter
+
+-----------------------------------------------------------------------
+
+Flutter – Lazy Loader
+
+https://www.geeksforgeeks.org/flutter-lazy-loader/amp/
+
+----------------------------------------------------------------------
+
+onEndOfPage called more than once #1
+
+https://github.com/QuirijnGB/lazy-load-scrollview/issues/1
+
+https://github.com/QuirijnGB/lazy-load-scrollview/issues/1
+
+
+https://github.com/QuirijnGB/lazy-load-scrollview/issues/1
+
+onEndOfPage called more than once #1
+--------------------------------------------------------------------
+2023-05-02
+----------------------------------------------------------------------
+
+
+https://stackoverflow.com/questions/67157440/flutter-dart-how-to-show-only-the-first-10-items-in-list-view-builder
+
+
+Flutter, Dart: How to show only the first 10 items in list view builder?
+
+-----------------------------------------------------------------------
+
+
+https://pub.dev/packages/lazy_load_scrollview
+
+
+------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=eENDlIgadr4
+
+Flutter: Infinite Scrolling ListView (HTTP GET)
+
+
+--------------------------------------------------------------------
+https://stackoverflow.com/questions/64628511/flutter-count-the-number-of-items-created-through-listview-builder-and-display
+
+Flutter: count the number of items created through ListView.builder and display them
+
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.grey[200],
+        body: Container(
+          child: Column(children: [
+            Text(
+              'My Wishlist',
+            ),
+            SizedBox(height: 20),
+            Text('You have ${products.length} Items'),
+            ...products.map((product) {
+              return Text(product.title);
+            }).toList(),
+          ]),
+        ));
+  }
+}
+
+class Product {
+  int id;
+  String title;
+  String image;
+  String description;
+
+  Product({this.id, this.title, this.image, this.description});
+}
+
+-------------------------------------------------------------------------
+
+
+
+Flutter: Lazy Loading ListViews | Load More Data On Scroll
+
+https://www.youtube.com/watch?v=JaVjHDdoVOg
+
+
+
+----------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=pZdJX3PAydQ
+
+Flutter Tutorial - Drag And Drop File Upload | Drop Files Into Dropzone
+
+----------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=Bc0qB1jtHBk
+
+
+Flutter Tutorial - Drag & Drop Widgets - Draggable & DragTarget
+--------------------------------------------------------------------------
+
+
+https://www.youtube.com/watch?v=8TWIE_GFs9E
+
+
+Flutter Tutorial - Get Widget Size & Position - Get X, Y, Width & Height Of Widget
+
+----------------------------------------------------------------------
