@@ -18,6 +18,7 @@ class _ListScreenState extends State<ListScreen> {
   int offset = 0; //per page data
   bool isLoading = false;
   dynamic count_tile_view = 0;
+  dynamic total_list = 0;
   dynamic data = {};
   List list_name = [];
   List _foundUsers = [];
@@ -34,7 +35,7 @@ class _ListScreenState extends State<ListScreen> {
     // print('New Offset value $offset');
     // print('Current Page $currentPage');
     var url = Uri.parse(
-        "http://localhost/API/get_pagination_data.php?offset=$offset"); //  print(url);
+        "http://localhost/API/get_pagination_data_numbering.php?offset=$offset"); //  print(url);
 
     var response = await http.get(url);
     //print(response.body);
@@ -54,12 +55,18 @@ class _ListScreenState extends State<ListScreen> {
     setState(() {
       var data = jsonDecode(response.body.toString());
       count_tile_view = data['total_count'];
+
+      print('Total List View $count_tile_view');
+
+      total_list = 30 / numberOfPages;
+
+      print('List in per page : $total_list');
     });
   }
 
   getTitleViewData() async {
     var url = Uri.parse(
-        "http://localhost/API/get_pagination_data.php?offset=$offset"); // print(url);
+        "http://localhost/API/get_pagination_data_numbering.php?offset=$offset"); // print(url);
     var response = await http.get(url);
     // print(response.body);                                            //To show all json data;
     setState(() {
@@ -120,7 +127,7 @@ class _ListScreenState extends State<ListScreen> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text('List View using Number Pagination Test Purpose'),
+        title: Text('List View using Number Pagination'),
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
         actions: [
@@ -212,8 +219,15 @@ class _ListScreenState extends State<ListScreen> {
               onPageChange: (index) {
                 setState(() {
                   currentPage = index + 1;
-                  // print('Current Page : $currentPage');
+                  print('Current Page : $currentPage');
+                  // print('List in per page : $total_list');
                   paginationLoading(currentPage);
+
+                  // for (int i = 1; i <= total_list; i++) {
+                  //   print('working in loop');
+                  //   currentPage = index + 1;
+                  // }
+
                   getTitleViewData();
                 });
               },
