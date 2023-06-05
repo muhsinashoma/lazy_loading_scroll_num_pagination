@@ -36,8 +36,8 @@ class _ListScreenState extends State<ListScreen> {
   Future paginationLoading(currentPage) async {
     offset = (currentPage - 1) * ((chunkSize + 1) - 1);
 
-    //print('Current Page $currentPage');
-    // print('New Offset value $offset');
+    print('Current Page $currentPage');
+    print('New Offset value $offset');
 
     var url = Uri.parse(
         "http://localhost/API/get_pagination_data_numbering.php?offset=$offset");
@@ -70,9 +70,13 @@ class _ListScreenState extends State<ListScreen> {
     // print(response);
     setState(() {
       var data = jsonDecode(response.body.toString());
+
       count_tile_view = int.parse(data['total_count'] ?? "0"); //null exception
+
       //print(data);
+
       numberOfPages = (count_tile_view / chunkSize).ceil();
+
       print('Total Pagination number $numberOfPages');
     });
   }
@@ -236,8 +240,15 @@ class _ListScreenState extends State<ListScreen> {
               onPageChange: (index) {
                 setState(() {
                   currentPage = index + 1;
-                  // print('Current Page : $currentPage');
+                  print('Current Page : $currentPage');
+                  // print('List in per page : $total_list');
                   paginationLoading(currentPage);
+
+                  // for (int i = 1; i <= total_list; i++) {
+                  //   print('working in loop');
+                  //   currentPage = index + 1;
+                  // }
+
                   getTitleViewData();
                 });
               },

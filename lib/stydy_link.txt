@@ -1,6 +1,8 @@
 
 
+https://pub.dev/packages/easy_pagination_datatable
 
+-----------------------------------------------------------------------------------
 "Md. Hasib Khan" <hasib.khan@fiberathome.net>; 
 "moshiur rahman" <moshiur.rahman@fiberathome.net>; 
 "anwar bhuiyan" <anwar.bhuiyan@fiberathome.net>; 

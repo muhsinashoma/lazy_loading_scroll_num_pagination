@@ -1,4 +1,47 @@
 
+
+--------------------------------------------------------------------------------------
+
+Is there a way to divide data coming from an API in flutter?
+
+https://stackoverflow.com/questions/64443467/is-there-a-way-to-divide-data-coming-from-an-api-in-flutter
+
+----------------------------------------------------------------------------------------------------
+https://www.kindacode.com/article/ways-to-convert-double-to-int-in-flutter-dart/
+
+4 ways to convert Double to Int in Flutter & Dart
+
+---------------------------------------------------------------------------------------------------
+Flutter: Display content from paginated API with dynamic ListView
+
+https://stackoverflow.com/questions/53729985/flutter-display-content-from-paginated-api-with-dynamic-listview
+
+-------------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=KcRtURq-Ww8
+Flutter Pagination Rest API List View (Infinite List)
+------------------------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=12r4KgVOD-s
+
+----------------------------------------------------------------------------------------------
+Async, Await, and Future Keywords in Flutter | Dart | Asynchronous Programming | Hindi
+https://www.youtube.com/watch?v=TnOuPlQRa0Y
+
+--------------------------------------------------------------------------------------------------
+Flutter setState() and Callback Function(with parameters) for Passing Data Between Classes
+
+https://www.youtube.com/watch?v=zq-JGQxNwtU
+
+-----------------------------------------------------------------------------------------------
+Flutter EP 9 convert int to string
+
+https://www.youtube.com/watch?v=FIpV4HMN2SY
+
+-------------------------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=7Lff-QClhsY
+
+Flutter - How to implement infinite scroll pagination in Flutter || API Integration || HTTP package
 ------------------------------------------------------------------------------------------------
 
 2023-05-25
