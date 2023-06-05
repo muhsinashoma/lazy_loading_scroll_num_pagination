@@ -2,16 +2,10 @@
 
 include "config.php";
 
-//$chunkSize = empty($_GET["chunkSize"])?"0":$_GET["chunkSize"];
-$offset = empty($_GET["offset"])?"0":$_GET["offset"];   //check nullable
-//$offset = $offset*$chunkSize;
 
+$offset = empty($_GET["offset"])?"0":$_GET["offset"];
 
-//$sql  =  ("SELECT * FROM tbl_title_subtitle limit 10 OFFSET $offset ");
-
-
-
-$sql  =  ("SELECT * FROM tbl_title_subtitle WHERE status IN (1) limit 10 OFFSET $offset ");
+$sql  =  ("SELECT * FROM tbl_title_subtitle limit 10  OFFSET $offset");
 
 //echo $sql;
 
