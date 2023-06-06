@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:lazy_loading_scroll_num_pagination/navigation_drawer.dart';
 import 'package:lazy_loading_scroll_num_pagination/number_pagination.dart';
 import 'package:number_paginator/number_paginator.dart';
-//import "package:flutter/foundation.dart";
+import 'package:lazy_loading_scroll_num_pagination/commonFiles/urls.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({Key? key}) : super(key: key);
@@ -35,23 +35,12 @@ class _ListScreenState extends State<ListScreen> {
   //Load for Pagination
   Future paginationLoading(currentPage) async {
     offset = (currentPage - 1) * ((chunkSize + 1) - 1);
+    //var url = Uri.parse("http://localhost/API/get_pagination_data_numbering.php?offset=$offset");
 
-    //print('Current Page $currentPage');
-    // print('New Offset value $offset');
-
+    //Using local IP
     var url = Uri.parse(
-        "http://localhost/API/get_pagination_data_numbering.php?offset=$offset");
+        "${baseUrl}get_pagination_data_numbering.php?offset=$offset' ");
     print(url);
-
-    //Procedure of Ashique
-
-    // print('New Offset value $offset');
-    //  print('Current Page $currentPage');
-    // offset = (currentPage - 1);
-
-    // var url = Uri.parse(
-    //     "http://localhost/API/get_pagination_data_numbering.php?offset=$offset&chunkSize=$chunkSize");
-    // print(url);
 
     var response = await http.get(url);
     //print(response.body);
@@ -65,7 +54,10 @@ class _ListScreenState extends State<ListScreen> {
   }
 
   TotalTileCount() async {
-    var url = Uri.parse("http://localhost/API/get_total_list_view_data.php");
+    //  var url = Uri.parse("http://localhost/API/get_total_list_view_data.php");
+
+    //Using local IP
+    var url = Uri.parse("${baseUrl}get_total_list_view_data.php ");
     var response = await http.get(url);
     // print(response);
     setState(() {
@@ -78,8 +70,12 @@ class _ListScreenState extends State<ListScreen> {
   }
 
   getTitleViewData() async {
-    var url = Uri.parse(
-        "http://localhost/API/get_pagination_data_numbering.php?offset=$offset"); // print(url);
+    //Using local IP
+    //  var url = Uri.parse("http://localhost/API/get_pagination_data_numbering.php?offset=$offset"); // print(url);
+
+    var url =
+        Uri.parse("${baseUrl}get_pagination_data_numbering.php?offset=$offset");
+    print(url);
     var response = await http.get(url);
     // print(response.body);                                            //To show all json data;
     setState(() {
@@ -152,7 +148,8 @@ class _ListScreenState extends State<ListScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => NumbersPage()));
+                          builder: (BuildContext context) =>
+                              NumbersPage(_foundUsers)));
                 },
                 icon: Icon(Icons.favorite_border),
                 // color: Colors.grey,
