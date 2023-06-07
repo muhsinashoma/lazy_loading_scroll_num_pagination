@@ -3,3 +3,15 @@ SELECT * FROM tbl_title_subtitle ORDER BY status = 0 limit 10 OFFSET 10      //i
 SELECT * FROM `tbl_title_subtitle` WHERE status IN (1) limit 10 OFFSET 20   //it will show only status = 1 
 
  $sql = ("SELECT * FROM tbl_it_equipment_requisition_form WHERE emp_id = '$emp_id'  AND category IN ('Laptop-LC1','Laptop-LC2','Laptop-LC3','Desktop-DC1','Desktop-DC2','Desktop-DC3')");
+
+---------------------------------------------------------------------------------------------------------------------
+
+Multiple update query
+
+UPDATE `tbl_title_subtitle` SET `status` = '1' WHERE id BETWEEN 19 AND 29;
+
+-----------------------------------------------------------------------------------------------------------------
+EDIT - if your primary_key is a column named MAX+1 you query should be (with backticks as stated correctly in the comment):
+
+UPDATE `smartmeter_usage`.`users_reporting` SET panel_id = 3 WHERE `MAX+1` BETWEEN 1001 AND 2000
+-----------------------------------------------------------------------------------------------------------------------------------
