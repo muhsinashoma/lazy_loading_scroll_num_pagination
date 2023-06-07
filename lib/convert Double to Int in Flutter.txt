@@ -1,0 +1,106 @@
+
+---------------------------------------------------------------------------------------------------------------
+How to do Integer division in dart | Flutter By Example
+
+https://www.cloudhadoop.com/dart-integer-division/
+
+----------------------------------------------------------------------------------------------------------------
+https://www.kindacode.com/article/ways-to-convert-double-to-int-in-flutter-dart/
+
+4 ways to convert Double to Int in Flutter & Dart
+
+
+------------------------------------------------------------------------------------------------------------------
+
+Table Of Contents
+1 Using toInt()
+2 Using round()
+3 Using ceil()
+4 Using floor()
+5 Conclusion
+
+Using toInt()
+The toInt() method will truncate a double to an integer and return a result whose type is int. In other words, positive numbers will be rounded down (e.g. 3.99 and 3.1 both return 3), and negative numbers will be rounded up (e.g. -3.14 and -3.99 both return -3).
+Example:
+
+import "package:flutter/foundation.dart";
+
+void main() {
+  double x = 3.94;
+  var y = x.toInt();
+
+  if (kDebugMode) {
+    print(y);
+    print(y.runtimeType);
+  }
+}
+Output:
+
+3
+int
+Using round()
+The round() method returns the closest integer to the double.
+
+Example:
+
+import "package:flutter/foundation.dart";
+
+void main() {
+  double a = 9.6;
+  var b = a.round();
+  if (kDebugMode) {
+    print(b);
+    print(b.runtimeType);
+  }
+}
+Output:
+
+10
+int
+Using ceil()
+The ceil() method returns the smallest integer that is equal to or greater than the given double.
+Example:
+
+import "package:flutter/foundation.dart";
+
+void main() {
+  double c = 5.1;
+  var d = c.ceil();
+  if (kDebugMode) {
+    print(d);
+    print(d.runtimeType);
+  }
+}
+Output:
+
+6
+int
+Using floor()
+The floor() method returns the greatest integer not greater than the given double.
+
+Example:
+
+import "package:flutter/foundation.dart";
+
+void main() {
+  double k = 1000.9;
+  var j = k.floor();
+  if (kDebugMode) {
+    print(j);
+    print(j.runtimeType);
+  }
+}
+Output:
+
+1000
+int
+Conclusion
+We’ve gone through 4 different techniques to convert a double to an integer in Dart and Flutter. You can choose from them the approach that fits your use case to solve your problem. Flutter is awesome and provides a lot of amazing features. Continue learning and exploring more by taking a look at the following article:
+
+Conditional (Ternary) Operator in Dart and Flutter
+Flutter and Firestore Database: CRUD example
+Sorting Lists in Dart and Flutter (5 Examples)
+Using GetX (Get) for State Management in Flutter
+Using GetX (Get) for Navigation and Routing in Flutter
+Flutter + Firebase Storage: Upload, Retrieve, and Delete files
+You can also take a tour around our Flutter topic page or Dart topic page for the latest tutorials and examples.

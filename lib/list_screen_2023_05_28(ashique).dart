@@ -1,20 +1,23 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
+//import 'package:lazy_load_scrollview/lazy_load_scrollview.dart'; //package imported
 import 'package:http/http.dart' as http;
 import 'package:lazy_loading_scroll_num_pagination/navigation_drawer.dart';
 import 'package:lazy_loading_scroll_num_pagination/number_pagination.dart';
-import 'package:number_paginator/number_paginator.dart'; //imported package
+import 'package:number_paginator/number_paginator.dart';
+//import "package:flutter/foundation.dart";
 
-class NumbersPage extends StatefulWidget {
-  const NumbersPage(dynamic foundUser, {Key? key}) : super(key: key);
+class ListScreen extends StatefulWidget {
+  const ListScreen({Key? key}) : super(key: key);
 
   @override
-  State<NumbersPage> createState() => _NumbersPageState();
+  State<ListScreen> createState() => _ListScreenState();
 }
 
-class _NumbersPageState extends State<NumbersPage> {
+class _ListScreenState extends State<ListScreen> {
   int offset = 0; //per page data
   bool isLoading = false;
   int count_tile_view = 0;
@@ -32,13 +35,23 @@ class _NumbersPageState extends State<NumbersPage> {
   //Load for Pagination
   Future paginationLoading(currentPage) async {
     offset = (currentPage - 1) * ((chunkSize + 1) - 1);
+
     print('Current Page $currentPage');
     print('New Offset value $offset');
 
     var url = Uri.parse(
         "http://localhost/API/get_pagination_data_numbering.php?offset=$offset");
-
     print(url);
+
+    //Procedure of Ashique
+
+    // print('New Offset value $offset');
+    //  print('Current Page $currentPage');
+    // offset = (currentPage - 1);
+
+    // var url = Uri.parse(
+    //     "http://localhost/API/get_pagination_data_numbering.php?offset=$offset&chunkSize=$chunkSize");
+    // print(url);
 
     var response = await http.get(url);
     //print(response.body);
@@ -57,9 +70,13 @@ class _NumbersPageState extends State<NumbersPage> {
     // print(response);
     setState(() {
       var data = jsonDecode(response.body.toString());
+
       count_tile_view = int.parse(data['total_count'] ?? "0"); //null exception
+
       //print(data);
+
       numberOfPages = (count_tile_view / chunkSize).ceil();
+
       print('Total Pagination number $numberOfPages');
     });
   }
@@ -127,9 +144,27 @@ class _NumbersPageState extends State<NumbersPage> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text('List View Pagination'),
+        title: Text('List View using Number Pagination'),
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
+        actions: [
+          Row(
+            children: [
+              Text('$count_tile_view'),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => NumbersPage()));
+                },
+                icon: Icon(Icons.favorite_border),
+                // color: Colors.grey,
+              ),
+              //   Text("$count_favortite"),
+            ],
+          ),
+        ],
       ),
       drawer: NavigationDrawer(),
       body: Padding(
@@ -205,8 +240,15 @@ class _NumbersPageState extends State<NumbersPage> {
               onPageChange: (index) {
                 setState(() {
                   currentPage = index + 1;
-                  // print('Current Page : $currentPage');
+                  print('Current Page : $currentPage');
+                  // print('List in per page : $total_list');
                   paginationLoading(currentPage);
+
+                  // for (int i = 1; i <= total_list; i++) {
+                  //   print('working in loop');
+                  //   currentPage = index + 1;
+                  // }
+
                   getTitleViewData();
                 });
               },

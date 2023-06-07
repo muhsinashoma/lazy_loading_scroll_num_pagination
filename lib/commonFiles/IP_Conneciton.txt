@@ -1,0 +1,12 @@
+C:\Users\Muhsina Akter>ipconfig
+Windows IP Configuration
+-------------------------------------------------------------
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . : www.tendawifi.com
+   Link-local IPv6 Address . . . . . : fe80::4d21:708f:1fef:25bb%14
+   IPv4 Address. . . . . . . . . . . : 192.168.1.101
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.1.1
+
+----------------------------------------------------------------
