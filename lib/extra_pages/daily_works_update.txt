@@ -1,0 +1,44 @@
+
+2024-01-27
+
+--------------------------------------------------------------------------------------------------------------------
+https://stackoverflow.com/questions/65954347/flutter-sending-variable-from-one-page-to-another-by-calling-stf-widget
+
+
+--------------------------------------------------------------------------------------------------------------------
+https://stackoverflow.com/questions/65954347/flutter-sending-variable-from-one-page-to-another-by-calling-stf-widget
+
+
+ElevatedButton(
+          child: Text("Cars"),
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HabitPage(info: 'Cars'))); // Passing the info as argument
+          },
+
+
+  
+  
+class HabitPage extends StatefulWidget {
+  
+  HabitPage({this.info}) : super(key: key);
+    
+    final String info; // Variable to receive the info as argument
+  
+  @override
+  _HabitPageState createState() => _HabitPageState();
+}
+  
+class _HabitPageState extends State<HabitPage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar
+      (
+          title: new Text("HabitPage ${widget.info}")// Showing the info passed as argument
+      ),
+      body: new Center(
+        child: new Text("HabitPage"),
+      ),
+    );
+  }
+}

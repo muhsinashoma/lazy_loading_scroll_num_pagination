@@ -5,16 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:signs_of_quran/drawer_navigation.dart';
 import 'package:signs_of_quran/number_pagination.dart';
-import 'package:number_paginator/number_paginator.dart'; //imported package
+import 'package:number_paginator/number_paginator.dart';
 
-class NumbersPage extends StatefulWidget {
-  const NumbersPage(dynamic foundUser, {Key? key}) : super(key: key);
+import 'adddata.dart'; //imported package
+
+class ListofSignAyah extends StatefulWidget {
+  // const ListofAyatuns(dynamic foundUser, {Key? key}) : super(key: key);
 
   @override
-  State<NumbersPage> createState() => _NumbersPageState();
+  State<ListofSignAyah> createState() => _ListofSignAyahState();
 }
 
-class _NumbersPageState extends State<NumbersPage> {
+class _ListofSignAyahState extends State<ListofSignAyah> {
   int offset = 0; //per page data
   bool isLoading = false;
   int count_tile_view = 0;
@@ -30,26 +32,26 @@ class _NumbersPageState extends State<NumbersPage> {
   int currentPage = 0;
 
   //Load for Pagination
-  Future paginationLoading(currentPage) async {
-    offset = (currentPage - 1) * ((chunkSize + 1) - 1);
-    print('Current Page $currentPage');
-    print('New Offset value $offset');
+  // Future paginationLoading(currentPage) async {
+  //   offset = (currentPage - 1) * ((chunkSize + 1) - 1);
+  //   print('Current Page $currentPage');
+  //   print('New Offset value $offset');
 
-    var url = Uri.parse(
-        "http://localhost/API/get_pagination_data_numbering.php?offset=$offset");
+  //   var url = Uri.parse(
+  //       "http://localhost/API/get_pagination_data_numbering.php?offset=$offset");
 
-    print(url);
+  //   print(url);
 
-    var response = await http.get(url);
-    //print(response.body);
+  //   var response = await http.get(url);
+  //   //print(response.body);
 
-    setState(() {
-      var data = jsonDecode(response.body);
-      list_name.addAll(data['single_page_data']);
-      //print(list_name);
-      _foundUsers = list_name;
-    });
-  }
+  //   setState(() {
+  //     var data = jsonDecode(response.body);
+  //     list_name.addAll(data['single_page_data']);
+  //     //print(list_name);
+  //     _foundUsers = list_name;
+  //   });
+  // }//end paginationLoading
 
   TotalTileCount() async {
     var url = Uri.parse("http://localhost/API/get_total_list_view_data.php");
@@ -60,13 +62,13 @@ class _NumbersPageState extends State<NumbersPage> {
       count_tile_view = int.parse(data['total_count'] ?? "0"); //null exception
       //print(data);
       numberOfPages = (count_tile_view / chunkSize).ceil();
-      print('Total Pagination number $numberOfPages');
+      // print('Total Pagination number $numberOfPages');
     });
   }
 
   getTitleViewData() async {
     var url = Uri.parse(
-        "http://localhost/API/get_pagination_data_numbering.php?offset=$offset"); // print(url);
+        "http://localhost/API_Ayatuns/get_ayatuns_of_quran.php"); // print(url);
     var response = await http.get(url);
     // print(response.body);                                            //To show all json data;
     setState(() {
@@ -75,6 +77,20 @@ class _NumbersPageState extends State<NumbersPage> {
       _foundUsers = list_name;
     });
   } //end getTitleViewData()
+
+  //Backup   October 21, 2023
+
+  // getTitleViewData() async {
+  //   var url = Uri.parse(
+  //       "http://localhost/API/get_pagination_data_numbering.php?offset=$offset"); // print(url);
+  //   var response = await http.get(url);
+  //   // print(response.body);                                            //To show all json data;
+  //   setState(() {
+  //     var data = jsonDecode(response.body);
+  //     list_name = data['single_page_data']; // print(list_name);
+  //     _foundUsers = list_name;
+  //   });
+  // } //end getTitleViewData()
 
   @override
   void initState() {
@@ -135,6 +151,16 @@ class _NumbersPageState extends State<NumbersPage> {
       // drawer: NavigationDrawer(),
 
       drawer: DrawerNavigation(),
+
+      //Add Data with + icon button
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
+        onPressed: (() {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (BuildContext context) => AddData()));
+        }),
+      ),
 
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -198,23 +224,26 @@ class _NumbersPageState extends State<NumbersPage> {
                 ], //Children
               ),
             ),
-            NumberPaginator(
-              numberPages: numberOfPages,
-              //buttonSelctedBackgroundColor: Colors.blue,
-              config: NumberPaginatorUIConfig(
-                buttonUnselectedBackgroundColor: Colors.red,
-                buttonSelectedBackgroundColor: Colors.yellow,
-              ),
 
-              onPageChange: (index) {
-                setState(() {
-                  currentPage = index + 1;
-                  // print('Current Page : $currentPage');
-                  paginationLoading(currentPage);
-                  getTitleViewData();
-                });
-              },
-            ),
+            //Number Paginator
+
+            // NumberPaginator(
+            //   numberPages: numberOfPages,
+            //   //buttonSelctedBackgroundColor: Colors.blue,
+            //   config: NumberPaginatorUIConfig(
+            //     buttonUnselectedBackgroundColor: Colors.red,
+            //     buttonSelectedBackgroundColor: Colors.yellow,
+            //   ),
+
+            //   onPageChange: (index) {
+            //     setState(() {
+            //       currentPage = index + 1;
+            //       // print('Current Page : $currentPage');
+            //       paginationLoading(currentPage);
+            //       getTitleViewData();
+            //     });
+            //   },
+            // ),
           ],
         ),
       ),

@@ -1,24 +1,24 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:lazy_loading_scroll_num_pagination/account_tree.dart';
-import 'package:lazy_loading_scroll_num_pagination/favorite_item.dart';
-import 'package:lazy_loading_scroll_num_pagination/home_page.dart';
-import 'package:lazy_loading_scroll_num_pagination/notification.dart';
-import 'package:lazy_loading_scroll_num_pagination/user_page.dart';
-import 'package:lazy_loading_scroll_num_pagination/work_flow.dart';
-import 'package:lazy_loading_scroll_num_pagination/work_list.dart';
+import 'package:signs_of_quran/account_tree.dart';
+import 'package:signs_of_quran/favorite_item.dart';
+import 'package:signs_of_quran/home_page.dart';
+import 'package:signs_of_quran/notification.dart';
+import 'package:signs_of_quran/user_page.dart';
+import 'package:signs_of_quran/work_flow.dart';
+import 'package:signs_of_quran/work_list.dart';
 
 //import 'package:sizer/sizer.dart';
 
-class NavigationDrawer extends StatefulWidget {
-  const NavigationDrawer({Key? key}) : super(key: key);
+class DrawerNavigation extends StatefulWidget {
+  const DrawerNavigation({Key? key}) : super(key: key);
 
   @override
-  State<NavigationDrawer> createState() => _NavigationDrawerState();
+  State<DrawerNavigation> createState() => _DrawerNavigationState();
 }
 
-class _NavigationDrawerState extends State<NavigationDrawer> {
+class _DrawerNavigationState extends State<DrawerNavigation> {
   @override
   Widget build(BuildContext context) => Drawer(
         child: SingleChildScrollView(

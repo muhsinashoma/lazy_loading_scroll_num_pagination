@@ -1,0 +1,155 @@
+import 'package:flutter/material.dart';
+import 'package:signs_of_quran/model/DetailsOfQuranModel.dart';
+//import 'package:signs_of_quran/drawer_navigation.dart';
+
+class DetailsOfAyah extends StatefulWidget {
+  final dynamic id;
+  DetailsOfAyah({Key? key, this.id}) : super(key: key);
+  // const DetailsOfAyah(foundUser, {super.key});
+
+  @override
+  State<DetailsOfAyah> createState() => _DetailsOfAyahState();
+}
+
+class _DetailsOfAyahState extends State<DetailsOfAyah> {
+  @override
+  void initState() {
+    // print(namesDataDetails);
+
+    // for (var element in namesDataDetails) {
+    //   print('-----------------From Details Page----------');
+    //   print(element.word_by_word_english);
+    // }
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    //return const Placeholder();
+    // print("details page-----------------kfjsldkfjsld");
+    print(widget.id);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Details of Ayah for Text Purpoose 2024-01-13'),
+        centerTitle: true,
+        backgroundColor: Colors.green,
+      ),
+      //  drawer: DrawerNavigation(),
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: namesDataDetails.isNotEmpty
+                  ? ListView.builder(
+                      itemCount: namesDataDetails.length,
+                      clipBehavior: Clip.none,
+                      itemBuilder: (context, index) => Container(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          child: Row(
+                            children: [
+                              //---------------1st Decoration of Circle----------------------
+                              Container(
+                                // width: 45,
+                                // height: 45,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.all(16),
+                                margin: EdgeInsets.only(
+                                  right: 24,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  //    const Color.fromARGB(255, 95, 168, 228),
+                                  //  color: Color.fromARGB(255, 29, 219, 60),
+
+                                  borderRadius: BorderRadius.circular(1000),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    namesDataDetails[index].id.toString(),
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.white,
+                                      //color: Colors.lightGreen,
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              //----------------------2nd To show Details of Ayah----------------------
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          namesDataDetails[index].ayah_number,
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            namesDataDetails[index].surah_name,
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(
+                                      namesDataDetails[index]
+                                          .word_by_word_arabic,
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    Text(
+                                      namesDataDetails[index]
+                                          .word_by_word_bengali,
+                                      style: TextStyle(
+                                          color: const Color.fromARGB(
+                                              255, 112, 100, 100)),
+                                    ),
+                                    SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(
+                                      namesDataDetails[index]
+                                          .word_by_word_english,
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              //3rd ----------------Details--------------------
+                              GestureDetector(
+                                //Need to open after making a new page for more detils
+                                // onTap: () {
+                                //   Navigator.push(context,
+                                //       MaterialPageRoute(builder: (context) {
+                                //     return MoreDetails(
+                                //       id:namesDataDetails[index].id
+                                //     );
+                                //   }));
+                                // },
+                                child: Container(
+                                  child: Text('More Details'),
+                                ),
+                              )
+                            ], //Children
+                          ),
+                        ),
+                      ),
+                    )
+                  : const Text('No Result Found'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

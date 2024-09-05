@@ -5,8 +5,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 //import 'package:lazy_load_scrollview/lazy_load_scrollview.dart'; //package imported
 import 'package:http/http.dart' as http;
-import 'package:lazy_loading_scroll_num_pagination/navigation_drawer.dart';
-import 'package:lazy_loading_scroll_num_pagination/number_pagination.dart';
+import 'package:signs_of_quran/drawer_navigation.dart';
+import 'package:signs_of_quran/number_pagination.dart';
 import 'package:number_paginator/number_paginator.dart';
 //import "package:flutter/foundation.dart";
 

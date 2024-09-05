@@ -1,0 +1,1 @@
+http://localhost/API_Quranic_Sign/get_ayatuns_of_quran.php

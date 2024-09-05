@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
-//import 'package:search_project/my_home_page.dart';
-//import 'package:search_project/tile_view_project.dart';
-import 'package:lazy_loading_scroll_num_pagination/list_screen.dart';
+import 'package:signs_of_quran/list_of_sign_ayah.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,15 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //  home: const MyHomePage(title: 'Flutter Demo Home Page'),
-
-      // home: MyHomePage(),
-
-      // home:TileViewApp(), // working perfectly with search and page is tile_view_project.dart
-
-      home: ListScreen(),
-
-      //home: LazyLoaddingScrolling(),
-      //home: Home(),
+      home: ListofSignAyah(),
     );
   }
 }

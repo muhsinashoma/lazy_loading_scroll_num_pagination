@@ -1,18 +1,11 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-//import 'package:lazy_load_scrollview/lazy_load_scrollview.dart'; //package imported
 import 'package:http/http.dart' as http;
-import 'package:lazy_loading_scroll_num_pagination/navigation_drawer.dart';   
-import 'package:lazy_loading_scroll_num_pagination/number_pagination.dart';
-
-import 'package:number_paginator/number_paginator.dart';              //package imported
-
-
-import 'package:lazy_loading_scroll_num_pagination/commonFiles/urls.dart';
-
+import 'package:signs_of_quran/number_pagination.dart';
+import 'package:number_paginator/number_paginator.dart'; //package imported
+import 'package:signs_of_quran/commonFiles/urls.dart';
+import 'package:signs_of_quran/drawer_navigation.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({Key? key}) : super(key: key);
@@ -163,7 +156,8 @@ class _ListScreenState extends State<ListScreen> {
           ),
         ],
       ),
-    drawer: NavigationDrawer(),
+      //drawer: NavigationDrawer(),
+      drawer: DrawerNavigation(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -230,7 +224,7 @@ class _ListScreenState extends State<ListScreen> {
               numberPages: numberOfPages,
               //buttonSelctedBackgroundColor: Colors.blue,
               config: NumberPaginatorUIConfig(
-                buttonUnselectedBackgroundColor: Colors.red,
+                buttonUnselectedBackgroundColor: Colors.grey,
                 buttonSelectedBackgroundColor: Colors.yellow,
               ),
 
